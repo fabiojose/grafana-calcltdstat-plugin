@@ -1,0 +1,25 @@
+{
+  "type": "panel",
+  "name": "Calculated Stat",
+    "id": "calcltdstat-panel",
+
+  "info": {
+    "description": "Calculated Stat panel for grafana",
+    "author": {
+      "name": "Fábio José",
+      "url": "https://github.com/fabiojose"
+    },
+    "keywords": ["calculated", "stat", "plugin", "panel"],
+    "logos": {
+      "small": "src/img/logo.svg",
+      "large": "src/img/logo.svg"
+    },
+    "version": "0.1.0",
+    "updated": "2017-07-16"
+  },
+
+  "dependencies": {
+    "grafanaVersion": "3.x.x",
+    "plugins": [ ]
+  }
+}

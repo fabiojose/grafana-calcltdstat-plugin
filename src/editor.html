@@ -1,0 +1,86 @@
+<div class="editor-row">
+  <!-- Calculation -->
+  <div class="section gf-form-group">
+    <h5 class="section-heading">Calculation</h5>
+    <div class="gf-form">
+      <label class="gf-form-label width-20">Operation</label>
+      <div class="gf-form-select-wrapper max-width-15">
+        <select 
+          class="gf-form-input"
+          ng-model="editor.panel.calculation"
+          ng-options="k as v.description for (k,v) in editor.calculations"
+          ng-change="ctrl.render()"></select>
+      </div>
+    </div>
+    <div class="gf-form">
+      <label class="gf-form-label width-20">Operator 1 query alias</label>
+      <input type="text"
+             class="gf-form-input"
+             ng-model="editor.panel.op1.name"
+             ng-change="ctrl.render()"
+             ng-model-onblur></input>
+    </div>
+    <div class="gf-form">
+      <label class="gf-form-label width-20">Operator 2 query alias</label>
+      <input type="text"
+             class="gf-form-input"
+             ng-model="editor.panel.op2.name"
+             ng-change="ctrl.render()"
+             ng-model-onblur></input>
+    </div>
+    <div class="gf-form">
+      <label class="gf-form-label width-20">Transformation</label>
+      <div class="gf-form-select-wrapper max-width-15">
+        <select 
+          class="gf-form-input"
+          ng-model="editor.panel.transformation"
+          ng-options="k as v.description for (k,v) in editor.transformers"
+          ng-change="ctrl.render()"></select>
+      </div>
+    </div>
+    <div class="gf-form">
+      <label class="gf-form-label width-20">Decimal digits
+        <tip>The number of digits to appear after the decimal point</tip>
+      </label>
+      <input type="text"
+             class="gf-form-input"
+             ng-model="editor.panel.style.digits"
+             ng-change="ctrl.render()"
+             ng-model-onblur></input>
+    </div>
+  </div>
+  <!-- /Calculation/ -->
+</div>
+
+<div class="editor-row">
+  <!-- Style -->
+  <div class="section gf-form-group">
+    <h5 class="section-heading">Style</h5>
+    <div class="gf-form">
+      <label class="gf-form-label width-10">Size</label>
+      <div class="gf-form-select-wrapper max-width-15">
+        <select
+          class="gf-form-input"
+          ng-model="editor.panel.style.size"
+          ng-options="k as v.description for (k, v) in editor.sizes"
+          ng-change="ctrl.render()"></select>
+      </div>
+    </div>
+
+    <div class="gf-form">
+      <label class="gf-form-label width-10">Color</label>
+      <div class="gf-form-select-wrapper max-width-15">
+        <select
+          class="gf-form-input"
+          ng-model="editor.panel.style.color"
+          ng-options="k as v.description for (k, v) in editor.colors"
+          ng-change="ctrl.render()"></select>
+      </div>
+    </div>
+    
+    <div class="gf-form">
+      <gf-form-switch class="gf-form" label-class="width-10" label="Show Circle?" checked="editor.panel.style.showCircle" on-change="ctrl.render()"></gf-form-switch>
+    </div>
+  </div>
+  <!-- /Style/ -->
+</div>

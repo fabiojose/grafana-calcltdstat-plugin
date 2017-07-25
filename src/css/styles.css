@@ -1,0 +1,22 @@
+/* Rotate 270 degrees*/
+.angle270 {
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+.badge {
+  border: 1px solid #000;
+}
+
+.badge-pill {
+  padding-right: 0.6em;
+  padding-left: 0.6em;
+  border-radius: 10rem;
+}
+
+.badge-info {
+  background-color: #5bc0de;
+}
