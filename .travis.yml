@@ -4,10 +4,16 @@ node_js:
 before_install: npm install -g grunt-cli
 install: npm install
 before_script: grunt
+script: |
+  if [ ! -z "$TRAVIS_TAG" ]; then
+    tar czf "grafana-calcltdstat-plugin-${TRAVIS_TAG}.tar.gz" dist/ --exclude-vcs
+  fi
 deploy:
+  skip_cleanup: true
   provider: releases
+  file_glob: true
   api_key:
     secure: HZpeQQi+uX1pdvcbMaC84MyZTv2RxNlVOUq+YolGns+5n6/41OBMojWf/EYsdqEgclCmxbjt3DctZTeUx6eACCdaccQaG77/PWvtQoJuHNWsDe+3aU46o6vasb8lgjbrpiHnwwzrcnkh3KBeB60VpVajHZqxYAUxqlUl6/NnIOlzLhgEu9O1sOAuxq/Kea51cpU745jZXYVTIHv76z6iM7c2xgoNlHjq2/MXKSGutMWnfDZBdFZBafJAbyne/uY086c9B2mUxNGRjBU+23SKDC1A1woesAIqz8kQqQeb9kIAQU7xO0Jqhh3MNZin+XVJsxNSCr0Ay02b49p8EVrbJSfZ0ZNS5UJkjSglgO30q8nTP1YRK5SseStbpC0oRadx5eJt9jTE6aOzSbb2eqO1fNXJvqdpqiTYO77fEGuu6zABF+h8JZmr1dMBzGEdviQM13U7D3ccDXpUu4RoTP6W87nWC0kYkdqVJrUKBO8ce+6NL2J4TrQoO2PNpvdMGdUgXcZg3xDD8RoCeGca9K8ywJiO816tTr0OnogtC8cagIlTiXJPL+pkdMIQOcDEj7rkRPEyJhz0UVuvnrVmbC/1dQT3R8CfCZIFGNFzwvl+k4GWWbmxaL6WEvpRJi1/3OHq7Y2c6ZKTqi8IRyANvLeprv18iLJmbJrYaKAu5/rxfIc=
   file: "*.tar.gz"
   on:
-    repo: fabiojose/grafana-calcltdstat-plugin
+    tags: true
